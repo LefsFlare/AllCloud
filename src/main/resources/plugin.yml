@@ -1,0 +1,21 @@
+name: SadCloud
+version: 1.0
+author: Jonatan Nordentoft
+website: https://cercus.net
+
+main: net.cercus.sadcloud.MainPlugin
+
+commands:
+  sad:
+    description: Spawns a sad cloud above yourself or another player
+
+permissions:
+  sad.*:
+    description: Gives access to all SadCloud commands
+    children:
+      sad.use: true
+      sad.other: true
+  sad.use:
+    description: Lets a player summon a sadcloud above themself
+  sad.other:
+    description: Lets a player summon a sadcloud above another player
