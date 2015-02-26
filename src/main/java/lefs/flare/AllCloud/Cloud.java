@@ -64,6 +64,7 @@ public class Cloud implements CommandExecutor{
 				removeCloud(uuid);
 				return true;
 			} else {
+				main.players.add(uuid);
 				main.normalplayers.add(uuid);
 				return false;
 			}
@@ -73,6 +74,7 @@ public class Cloud implements CommandExecutor{
 				removeCloud(uuid);
 				return true;
 			} else {
+				main.players.add(uuid);
 				main.sadplayers.add(uuid);
 				return false;
 			}
