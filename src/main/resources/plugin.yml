@@ -1,5 +1,5 @@
 name: AllCloud
-version: 1.2
+version: 1.3
 author: LefsFlare
 authors: [Jonathan Nordentoft]
 website: https://lefs.me
@@ -7,16 +7,31 @@ website: https://lefs.me
 main: lefs.flare.AllCloud.Main
 
 commands:
-  sad:
-    description: Spawns a sad cloud above yourself or another player
+  cloud:
+    description: Spawn a cloud sub-type above your head
 
 permissions:
-  sad.*:
-    description: Gives access to all SadCloud commands
+  cloud.use.*:
+    description: Gives access to all AllCloud clouds
     children:
-      sad.use: true
-      sad.other: true
-  sad.use:
-    description: Lets a player summon a sadcloud above themself
-  sad.other:
-    description: Lets a player summon a sadcloud above another player
+      cloud.use.cloud: true
+      cloud.use.sad: true
+      cloud.use.happy: true
+  cloud.others.*:
+    description: Gives access to giving other players all AllCloud clouds
+    children:
+      cloud.others.cloud: true
+      cloud.others.sad: true
+      cloud.others.happy: true
+  cloud.use.cloud:
+    description: Lets a player summon a normal cloud above themselves
+  cloud.use.sad:
+    description: Lets a player summon a sad cloud above themselves
+  cloud.use.happy:
+    description: Lets a player summon a happy cloud above themselves
+  cloud.others.cloud:
+    description: Lets a player summon a normal cloud for other players
+  cloud.others.sad:
+    description: Lets a player summon a sad cloud for other players
+  cloud.others.happy:
+    description: Lets a player summon a happy cloud for other players
