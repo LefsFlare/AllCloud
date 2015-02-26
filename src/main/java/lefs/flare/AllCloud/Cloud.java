@@ -30,7 +30,7 @@ public class Cloud implements CommandExecutor{
 							sender.sendMessage(ChatColor.RED + "Error: You don't have permission to use this command.");
 						}
 					} else {
-						sender.sendMessage(ChatColor.RED + "Error: Only players can use the command on themselves. Usage: /cloud [type].");
+						sender.sendMessage(ChatColor.RED + "Error: Only players can use the command on themselves. Usage: /cloud [type] [player].");
 					}
 				}
 			} else if (args.length == 2) {
