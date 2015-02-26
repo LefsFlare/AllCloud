@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -14,7 +15,6 @@ import com.darkblade12.particleeffect.ParticleEffect;
 
 public class Main extends JavaPlugin {
 	private List<UUID> players = new ArrayList<UUID>();
-	
 	public boolean toggleCloud(UUID uuid) {
 		boolean contains = players.contains(uuid);
 		
@@ -28,6 +28,8 @@ public class Main extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
+		getCommand("sad").setExecutor(SadCloud(this));
+		
 		new BukkitRunnable() {
 			public void run() {
 				for (UUID uuid : players) {
@@ -40,5 +42,10 @@ public class Main extends JavaPlugin {
 				}
 			}
 		}.runTaskTimer(this, 2, 2);
+	}
+
+	private CommandExecutor SadCloud(Main main) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
