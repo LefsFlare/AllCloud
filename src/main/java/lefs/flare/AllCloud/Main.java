@@ -64,7 +64,7 @@ public class Main extends JavaPlugin {
 					Player player = Bukkit.getPlayer(uuid);
 					if (player != null) {
 						Location location = player.getLocation();
-						ParticleEffect.ENCHANTMENT_TABLE.display(.4f, .5f, .4f, 0, 30, location.clone().add(0, 0, 0), 20);
+						ParticleEffect.ENCHANTMENT_TABLE.display(.4f, .5f, .4f, 0, 50, location.clone().add(0, 1, 0), 20);
 					}
 				}
 			}
