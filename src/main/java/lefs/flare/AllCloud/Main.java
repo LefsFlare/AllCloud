@@ -53,7 +53,7 @@ public class Main extends JavaPlugin {
 					if (player != null) {
 						Location location = player.getLocation();
 						ParticleEffect.CLOUD.display(.4f, .5f, .4f, 0, 50, location.clone().add(0, 6, 0), 20);
-						ParticleEffect.FIREWORKS_SPARK.display(.2f, .5f, .2f, 0, 30, location.clone().add(0, 5, 0), 20);
+						ParticleEffect.FIREWORKS_SPARK.display(.3f, .5f, .3f, 0, 25, location.clone().add(0, 5, 0), 20);
 					}
 				}
 			}
