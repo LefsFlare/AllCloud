@@ -68,6 +68,7 @@ public class Cloud implements CommandExecutor{
 				removeCloud(uuid);
 				return true;
 			} else {
+				removeCloud(uuid);
 				main.players.add(uuid);
 				main.normalplayers.add(uuid);
 				return false;
@@ -77,15 +78,17 @@ public class Cloud implements CommandExecutor{
 				removeCloud(uuid);
 				return true;
 			} else {
+				removeCloud(uuid);
 				main.players.add(uuid);
 				main.sadplayers.add(uuid);
 				return false;
 			}
 		} else if (type.equalsIgnoreCase("happy")) {
-			if (main.sadplayers.contains(uuid)) {
+			if (main.happyplayers.contains(uuid)) {
 				removeCloud(uuid);
 				return true;
 			} else {
+				removeCloud(uuid);
 				main.players.add(uuid);
 				main.happyplayers.add(uuid);
 				return false;
