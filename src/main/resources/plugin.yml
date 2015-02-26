@@ -1,5 +1,5 @@
 name: AllCloud
-version: 1.3
+version: 1.3.1
 author: LefsFlare
 authors: [Jonathan Nordentoft]
 website: https://lefs.me
@@ -17,21 +17,27 @@ permissions:
       cloud.use.cloud: true
       cloud.use.sad: true
       cloud.use.happy: true
+      cloud.use.enchant: true
   cloud.others.*:
     description: Gives access to giving other players all AllCloud clouds
     children:
       cloud.others.cloud: true
       cloud.others.sad: true
       cloud.others.happy: true
+      cloud.others.enchant: true
   cloud.use.cloud:
     description: Lets a player summon a normal cloud above themselves
   cloud.use.sad:
     description: Lets a player summon a sad cloud above themselves
   cloud.use.happy:
     description: Lets a player summon a happy cloud above themselves
+  cloud.use.enchant:
+    description: Lets a player summon a enchantment cloud around themselves
   cloud.others.cloud:
     description: Lets a player summon a normal cloud for other players
   cloud.others.sad:
     description: Lets a player summon a sad cloud for other players
   cloud.others.happy:
     description: Lets a player summon a happy cloud for other players
+  cloud.others.enchant:
+    description: Lets a player summon a enchantment cloud around themselves

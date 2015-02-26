@@ -18,13 +18,13 @@ public class Cloud implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("cloud")) {
 			if (args.length == 1) {
-				if (args[0].equalsIgnoreCase("normal") || args[0].equalsIgnoreCase("happy") || args[0].equalsIgnoreCase("sad")) {
+				if (args[0].equalsIgnoreCase("normal") || args[0].equalsIgnoreCase("happy") || args[0].equalsIgnoreCase("sad") || args[0].equalsIgnoreCase("enchant")) {
 					String mode = args[0].toLowerCase();
 					if (sender instanceof Player) {
 						if (sender.hasPermission("cloud.use." + mode)) {
 							UUID uuid = ((Player) sender).getUniqueId();
 							boolean status = toggleCloud(uuid, mode);
-							sender.sendMessage((status ? ChatColor.RED + "Disabled" : ChatColor.GREEN + "Enabled") + " " + mode + " cloud");
+							sender.sendMessage((status ? ChatColor.RED + "Disabled" : ChatColor.GREEN + "Enabled") + " " + mode + " cloud.");
 							return true;
 						} else {
 							sender.sendMessage(ChatColor.RED + "Error: You don't have permission to use this command.");
@@ -34,7 +34,7 @@ public class Cloud implements CommandExecutor{
 					}
 				}
 			} else if (args.length == 2) {
-				if (args[0].equalsIgnoreCase("normal") || args[0].equalsIgnoreCase("happy") || args[0].equalsIgnoreCase("sad")) {
+				if (args[0].equalsIgnoreCase("normal") || args[0].equalsIgnoreCase("happy") || args[0].equalsIgnoreCase("sad") || args[0].equalsIgnoreCase("enchant")) {
 					String mode = args[0].toLowerCase();
 					Player player = Bukkit.getPlayer(args[1]);
 					Player executor = Bukkit.getPlayer(sender.getName());
@@ -44,13 +44,15 @@ public class Cloud implements CommandExecutor{
 							if (sender.hasPermission("cloud.others." + mode)) {
 								UUID uuid = player.getUniqueId();
 								boolean status = toggleCloud(uuid, mode);
-								sender.sendMessage((status ? ChatColor.RED + "Disabled" : ChatColor.GREEN + "Enabled") + " " + mode + " cloud for " + player.getDisplayName());
+								sender.sendMessage((status ? ChatColor.RED + "Disabled" : ChatColor.GREEN + "Enabled") + " " + mode + " cloud for " + player.getDisplayName() + ".");
 								player.sendMessage(ChatColor.YELLOW + executor.getDisplayName() + " has " + (status ? ChatColor.RED + "disabled" : ChatColor.GREEN + "enabled") + ChatColor.YELLOW + " " + mode + " cloud for you.");
+							} else {
+								sender.sendMessage(ChatColor.RED + "Error: You don't have permission to use this command.");
 							}
 						} else {
 							UUID uuid = player.getUniqueId();
 							boolean status = toggleCloud(uuid, "normal");
-							sender.sendMessage((status ? ChatColor.RED + "Disabled" : ChatColor.GREEN + "Enabled") + " " + mode + " cloud for " + player.getDisplayName());
+							sender.sendMessage((status ? ChatColor.RED + "Disabled" : ChatColor.GREEN + "Enabled") + " " + mode + " cloud for " + player.getDisplayName() + ".");
 							player.sendMessage(ChatColor.YELLOW + "Console" + " has " + (status ? ChatColor.RED + "disabled" : ChatColor.GREEN + "enabled") + ChatColor.YELLOW + " " + mode + " cloud for you.");
 						}
 					} else {
@@ -93,6 +95,16 @@ public class Cloud implements CommandExecutor{
 				main.happyplayers.add(uuid);
 				return false;
 			}
+		} else if (type.equalsIgnoreCase("enchant")) {
+			if (main.enchantedplayers.contains(uuid)) {
+				removeCloud(uuid);
+				return true;
+			} else {
+				removeCloud(uuid);
+				main.players.add(uuid);
+				main.enchantedplayers.add(uuid);
+				return false;
+			}
 		}
 		return false;
 	}
@@ -103,6 +115,7 @@ public class Cloud implements CommandExecutor{
 			main.sadplayers.remove(uuid);
 			main.normalplayers.remove(uuid);
 			main.happyplayers.remove(uuid);
+			main.enchantedplayers.remove(uuid);
 		}
 	}
 }
