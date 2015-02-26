@@ -1,9 +1,10 @@
-name: SadCloud
-version: 1.0
-author: Jonatan Nordentoft
-website: https://cercus.net
+name: AllCloud
+version: 1.1
+author: LefsFlare
+authors: [Jonathan Nordentoft]
+website: https://lefs.me
 
-main: net.cercus.sadcloud.MainPlugin
+main: lefs.flare.AllCloud.Main
 
 commands:
   sad:

@@ -1,4 +1,4 @@
-package net.cercus.sadcloud;
+package lefs.flare.AllCloud;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import com.darkblade12.particleeffect.ParticleEffect;
 
-public class MainPlugin extends JavaPlugin {
+public class Main extends JavaPlugin {
 	private List<UUID> players = new ArrayList<UUID>();
 	
 	@Override
