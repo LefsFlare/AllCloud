@@ -40,7 +40,7 @@ public class Main extends JavaPlugin {
 					Player player = Bukkit.getPlayer(uuid);
 					if (player != null) {
 						Location location = player.getLocation();
-						ParticleEffect.CLOUD.display(.4f, .5f, .4f, 0, 50, location.clone().add(0, 6, 0), 20);						ParticleEffect.WATER_DROP.display(.4f, .5f, .4f, 0, 100, location.clone().add(0, 5, 0), 20);
+						ParticleEffect.FIREWORKS_SPARK.display(.4f, .5f, .4f, 0, 50, location.clone().add(0, 6, 0), 20);						ParticleEffect.WATER_DROP.display(.4f, .5f, .4f, 0, 100, location.clone().add(0, 5, 0), 20);
 					}
 				}
 			}
