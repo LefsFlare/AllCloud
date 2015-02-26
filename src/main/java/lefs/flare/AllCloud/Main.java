@@ -13,17 +13,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.darkblade12.particleeffect.ParticleEffect;
 
 public class Main extends JavaPlugin {
-	private List<UUID> players = new ArrayList<UUID>();
-	public boolean toggleCloud(UUID uuid) {
-		boolean contains = players.contains(uuid);
-		
-		if(contains)
-			players.remove(uuid);
-		else
-			players.add(uuid);
-		
-		return contains;
-	}
 	public List<UUID> players = new ArrayList<UUID>();
 	public List<UUID> sadplayers = new ArrayList<UUID>();
 	public List<UUID> normalplayers = new ArrayList<UUID>();
@@ -31,7 +20,7 @@ public class Main extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		getCommand("sad").setExecutor(new SadCloud(this));
+		getCommand("cloud").setExecutor(new Cloud(this));
 		
 		new BukkitRunnable() {
 			public void run() {
